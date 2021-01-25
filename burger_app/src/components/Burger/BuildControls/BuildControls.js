@@ -18,6 +18,8 @@ const buildControls = (props) => (
             // type={el.type}
             // added={props.ingredientAdded}
             added={() => props.ingredientAdded(el.type)}
+            removed={() => props.ingredientRemoved(el.type)}
+            disabled={props.disabled[el.type]}
         />)}
     </div>
 
