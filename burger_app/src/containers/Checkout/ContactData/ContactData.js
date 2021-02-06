@@ -54,6 +54,7 @@ class ContactData extends Component {
                 elementType: 'select',
                 elementConfig: {
                     options: [
+                        {value: '', displayValue: 'Make your choice'},
                         {value: 'fastest', displayValue: 'Fastest'},
                         {value: 'cheapest', displayValue: 'Cheapest'}
                     ]
@@ -68,10 +69,16 @@ class ContactData extends Component {
         event.preventDefault();
         // console.log(this.props.ingredients)
         this.setState({loading: true})
+
+        const formData = {};
+        for (let elem in this.state.orderForm) {
+            formData[elem] = this.state.orderForm[elem].value;
+        }
+
         const order = {
             ingredients: this.props.ingredients,
             price: this.props.totalPrice,
-
+            orderData: formData
         }
         axios.post('/orders.json', order)
             .then(response => {
