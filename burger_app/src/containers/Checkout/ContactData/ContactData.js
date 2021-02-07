@@ -87,9 +87,9 @@ class ContactData extends Component {
                     ]
                 },
                 value: '',
-                // validation: {
-                //     required: true,
-                // },
+                validation: {
+                    required: true,
+                },
                 valid: false,
                 touched: false,
             },
@@ -178,6 +178,7 @@ class ContactData extends Component {
                         invalid={!formElem.config.valid}
                         shouldValidate={formElem.config.validation}
                         touched={formElem.config.touched}
+                        valueType={formElem.config.elementConfig.placeholder}
                     />
                 )}
                 <Button className={styles.Input} btnType="Success" clicked={this.orderHandler}>ORDER</Button>
