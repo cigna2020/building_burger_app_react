@@ -28,12 +28,12 @@ class BurgerBuilder extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://burger-app-94349-default-rtdb.firebaseio.com/ingredients.json')
-            .then(response => {
-                this.setState({ingredients: response.data});
-            }).catch(error => {
-                this.setState({error: true});
-            });
+        // axios.get('https://burger-app-94349-default-rtdb.firebaseio.com/ingredients.json')
+        //     .then(response => {
+        //         this.setState({ingredients: response.data});
+        //     }).catch(error => {
+        //         this.setState({error: true});
+        //     });
     }
 
     updatePurchaseState = (ingredients) => {                // ingredients потрібно щоб кожного разу обновлювати інфо про state
