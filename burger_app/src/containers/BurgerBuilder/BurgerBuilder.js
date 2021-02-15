@@ -17,7 +17,7 @@ class BurgerBuilder extends Component {
 
     state = {
         // totalPrice: 4,
-        purchasable: false,
+        // purchasable: false,
         purchasing: false,
         loading: false,
         error: false,
@@ -39,39 +39,10 @@ class BurgerBuilder extends Component {
         }).reduce((sum, el) => {
             return sum + el;
         }, 0);
-        this.setState({purchasable: sum > 0});
+        return sum > 0;
     };
 
-    // addIngredientHandler = (type) => {
-    //     const oldCount = this.state.ingredients[type];
-    //     const updateCount = oldCount + 1;
-    //     const updatedIngredients = {...this.state.ingredients};
-    //     updatedIngredients[type] = updateCount
-    //     this.setState({ingredients: updatedIngredients});
 
-    //     const oldPrice = this.state.totalPrice;
-    //     const priceAddition = INGREDIENT_PRICES[type];
-    //     const newPrice = oldPrice + priceAddition;
-    //     this.setState({totalPrice: newPrice});
-
-    //     this.updatePurchaseState(updatedIngredients);
-    // }
-
-    // removeIngredient = (type) => {
-    //     const oldCount = this.state.ingredients[type];
-    //     if (oldCount > 0) {
-    //         const updateCount = oldCount - 1;
-    //         const updatedIngredients = {...this.state.ingredients};
-    //         updatedIngredients[type] = updateCount
-    //         this.setState({ingredients: updatedIngredients});
-
-    //         this.updatePurchaseState(updatedIngredients);
-    //     } else {return }
-    //     const oldPrice = this.state.totalPrice;
-    //     const priceDeduction = INGREDIENT_PRICES[type];
-    //     const newPrice = oldPrice - priceDeduction;
-    //     this.setState({totalPrice: newPrice});
-    // }
 
     purchaseHandler = () => {
         this.setState({purchasing: true})
@@ -117,7 +88,7 @@ class BurgerBuilder extends Component {
                         ingredientRemoved={this.props.onIngredientRemoved}
                         disabled={disabledInfo}
                         price={this.props.price}
-                        purchasable={this.state.purchasable}
+                        purchasable={this.updatePurchaseState(this.props.ings)}
                         orderd={this.purchaseHandler}
                     />
                 </Aux>
