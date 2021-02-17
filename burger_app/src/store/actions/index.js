@@ -4,4 +4,4 @@ export {
     initIngredients,
 } from './burgerBuilder';
 
-export { } from './actionsTypes';
+export {purchaseBurger} from './order.js';
